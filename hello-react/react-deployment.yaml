@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-react
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-react
+  template:
+    metadata:
+      labels:
+        app: hello-react
+    spec:
+      containers:
+        - name: hello-react
+          image: hello-react
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
